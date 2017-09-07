@@ -1,0 +1,10 @@
+C:\WindowsApplication2\WindowsApplication2\bin\Debug\lazadawheelminer.exe
+C:\WindowsApplication2\WindowsApplication2\bin\Debug\lazadawheelminer.pdb
+C:\WindowsApplication2\WindowsApplication2\bin\Debug\lazadawheelminer.xml
+C:\WindowsApplication2\WindowsApplication2\obj\x86\Debug\lazadawheelminer.vbprojResolveAssemblyReference.cache
+C:\WindowsApplication2\WindowsApplication2\obj\x86\Debug\lazadawheelminer.Form1.resources
+C:\WindowsApplication2\WindowsApplication2\obj\x86\Debug\lazadawheelminer.Resources.resources
+C:\WindowsApplication2\WindowsApplication2\obj\x86\Debug\lazadawheelminer.vbproj.GenerateResource.Cache
+C:\WindowsApplication2\WindowsApplication2\obj\x86\Debug\lazadawheelminer.exe
+C:\WindowsApplication2\WindowsApplication2\obj\x86\Debug\lazadawheelminer.xml
+C:\WindowsApplication2\WindowsApplication2\obj\x86\Debug\lazadawheelminer.pdb
