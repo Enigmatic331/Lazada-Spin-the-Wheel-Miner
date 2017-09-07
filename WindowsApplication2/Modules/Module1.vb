@@ -1,11 +1,6 @@
-﻿Imports System
-Imports System.Collections.Generic
-Imports System.Linq
-Imports System.Net
-Imports System.Windows
+﻿Imports System.Net
 Imports System.IO
-Imports System.Text
-Imports System.IO.IsolatedStorage
+
 
 
 Module Module1
