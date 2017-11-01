@@ -30,7 +30,7 @@ Module Module1
         Try
             'get file extension  
             strToken = GetCurrentToken(strFileName)
-            sURL = "http://www.lazada.com.my/ajax/lottery/spinTheWheel/?lang=en&platform=desktop&wheelToken=" & strToken & "&dpr=" & Trim(strFileName)
+            sURL = "https://www.lazada.com.my/ajax/lottery/spinTheWheel/?lang=en&platform=desktop&wheelToken=" & strToken & "&dpr=" & Trim(strFileName)
             'sURL = "http://www.lazada.com.my/ajax/campaign/play/?lang=en&platform=desktop&dpr=" & Trim(strFileName)
 
             intCount = 0
@@ -40,7 +40,7 @@ Module Module1
 
                 If intCount > 10000 Then
                     strToken = GetCurrentToken(strFileName)
-                    sURL = "http://www.lazada.com.my/ajax/lottery/spinTheWheel/?lang=en&platform=desktop&wheelToken=" & strToken & "&dpr=" & Trim(strFileName)
+                    sURL = "https://www.lazada.com.my/ajax/lottery/spinTheWheel/?lang=en&platform=desktop&wheelToken=" & strToken & "&dpr=" & Trim(strFileName)
                     'sURL = "http://www.lazada.com.my/ajax/campaign/play/?lang=en&platform=desktop&dpr=" & Trim(strFileName)
                     intCount = 0
                 End If
@@ -50,48 +50,45 @@ Module Module1
                 'Threading.Thread.Sleep(1000)
                 Dim res As HttpWebResponse
                 myHttpWebRequest.CookieContainer = CookieJar
-                'Dim myProxy As New WebProxy("103.253.147.9:8080", True)
+                'Dim myProxy As New WebProxy("128.199.190.130:8080", True)
                 myHttpWebRequest.UserAgent = "Mozilla/5.0 (Windows NT 6.3; WOW64; rv:42.0) Gecko/20100101 Firefox/42.0"
-                myHttpWebRequest.Referer = "http://www.lazada.com.my/shopping-kaw-kaw"
+                myHttpWebRequest.Referer = "https://www.lazada.com.my/online-revolution-spin-the-wheel/"
                 myHttpWebRequest.Host = "www.lazada.com.my"
                 myHttpWebRequest.Accept = "*/*"
                 myHttpWebRequest.ContentType = "application/x-www-form-urlencoded; charset=UTF-8"
-                'myHttpWebRequest.Proxy = myProxy
+                'myHttpWebRequest.Proxy = vbNullString
 
-                'Try
                 objStream = myHttpWebRequest.GetResponse.GetResponseStream
                 res = myHttpWebRequest.GetResponse
                 SaveIncomingCookies(res, Trim(strFileName))
-                'Catch e As WebException
-                '   MsgBox(e.Response)
-                'End Try
 
 
                 Dim objReader As New StreamReader(objStream)
                 Dim sLine As String = ""
 
-                Do While Not sLine Is Nothing
-                    sLine = objReader.ReadLine
-                    If Not sLine Is Nothing Or Trim(sLine) <> "" Then
-                        'extract sLine
-                        strOriLine = sLine
-                        intPos = InStr(sLine, """productsBlockTitle"":", CompareMethod.Text)
-                        sLine = sLine.Substring(intPos + Len("""productsBlockTitle"":"))
-                        intPos = InStr(sLine, """", CompareMethod.Text)
-                        sLine = sLine.Remove(IIf(intPos - 1 >= 0, intPos - 1, 0))
-                        sLine = Replace(sLine, """", "")
+                Dim block(300) As Char
+                objReader.ReadBlock(block, 0, 300)
+                sLine = New String(block)
 
-                        If sLine <> "Exclusive Early Deals! Don't miss out!" Then
-                            'intPos = 0
-                            'intPos = 1 / intPos
-                            System.IO.File.AppendAllText("C:\Lazada\" & strFileName & ".txt", strOriLine & vbCrLf)
-                            res.Cookies(0).Expires = DateTime.Now
-                            res.Cookies(1).Expires = DateTime.Now
-                            res.Cookies(2).Expires = DateTime.Now
-                            Exit Sub
-                        End If
+                If Not sLine Is Nothing Or Trim(sLine) <> "" Then
+                    'extract sLine
+                    strOriLine = sLine
+                    intPos = InStr(sLine, """productsBlockTitle"":", CompareMethod.Text)
+                    sLine = sLine.Substring(intPos + Len("""productsBlockTitle"":"))
+                    intPos = InStr(sLine, """", CompareMethod.Text)
+                    sLine = sLine.Remove(IIf(intPos - 1 >= 0, intPos - 1, 0))
+                    sLine = Replace(sLine, """", "")
+
+                    If sLine <> "Exclusive Early Deals! Don't miss out!" Then
+                        'intPos = 0
+                        'intPos = 1 / intPos
+                        System.IO.File.AppendAllText("C:\Lazada\" & strFileName & ".txt", strOriLine & vbCrLf)
+                        res.Cookies(0).Expires = DateTime.Now
+                        res.Cookies(1).Expires = DateTime.Now
+                        res.Cookies(2).Expires = DateTime.Now
+                        Exit Sub
                     End If
-                Loop
+                End If
 
                 'objReader = Nothing
             End While
@@ -101,20 +98,20 @@ Module Module1
 
     End Sub
 
-    Private Function GetCurrentToken(strFileName) As String
+    Private Function GetCurrentToken(strFileName As String) As String
         Dim sURL As String, sToken As String
         'Dim wrGETURL As WebRequest
         Dim objStream As Stream
         Dim intPos As Integer
 
-        sURL = "http://www.lazada.com.my/ajax/lottery/settings/?lang=en&platform=desktop&dpr=" & Trim(strFileName)
+        sURL = "https://www.lazada.com.my/ajax/lottery/settings/?lang=en&platform=desktop&dpr=" & Trim(strFileName)
         'sURL = "http://www.lazada.com.my/ajax/campaign/play/?lang=en&platform=desktop&dpr=" & Trim(strFileName)
         Dim res As HttpWebResponse
-        'Dim myProxy As New WebProxy("103.253.147.9:8080", True)
+        'Dim myProxy As New WebProxy(IProxy, True)
         Dim myHttpWebRequest As HttpWebRequest = CType(WebRequest.Create(sURL), HttpWebRequest)
         myHttpWebRequest.CookieContainer = CookieJar
         myHttpWebRequest.UserAgent = "Mozilla/5.0 (Windows NT 6.3; WOW64; rv:42.0) Gecko/20100101 Firefox/42.0"
-        myHttpWebRequest.Referer = "http://www.lazada.com.my/shopping-kaw-kaw"
+        myHttpWebRequest.Referer = "https://www.lazada.com.my/shopping-kaw-kaw"
         myHttpWebRequest.Host = "www.lazada.com.my"
         myHttpWebRequest.Accept = "*/*"
         myHttpWebRequest.ContentType = "application/x-www-form-urlencoded; charset=UTF-8"
@@ -149,7 +146,7 @@ Module Module1
     Private Sub SaveIncomingCookies(ByRef response As HttpWebResponse, ByVal dpr As Integer)
         If response.Headers("Set-Cookie") <> Nothing Then
             'CookieJar.SetCookies(New Uri("http://www.lazada.com.my/ajax/campaign/play/?lang=en&platform=desktop&dpr=" & dpr), response.Headers("Set-Cookie"))
-            CookieJar.SetCookies(New Uri("http://www.lazada.com.my/ajax/lottery/play/?lang=en&platform=desktop&dpr=" & dpr), response.Headers("Set-Cookie"))
+            CookieJar.SetCookies(New Uri("https://www.lazada.com.my/ajax/lottery/play/?lang=en&platform=desktop&dpr=" & dpr), response.Headers("Set-Cookie"))
         End If
     End Sub
 End Module
