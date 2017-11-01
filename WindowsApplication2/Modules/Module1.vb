@@ -47,15 +47,16 @@ Module Module1
 
 
                 Dim myHttpWebRequest As HttpWebRequest = CType(WebRequest.Create(sURL), HttpWebRequest)
+                'Threading.Thread.Sleep(1000)
                 Dim res As HttpWebResponse
                 myHttpWebRequest.CookieContainer = CookieJar
-
-
+                'Dim myProxy As New WebProxy("103.253.147.9:8080", True)
                 myHttpWebRequest.UserAgent = "Mozilla/5.0 (Windows NT 6.3; WOW64; rv:42.0) Gecko/20100101 Firefox/42.0"
                 myHttpWebRequest.Referer = "http://www.lazada.com.my/shopping-kaw-kaw"
                 myHttpWebRequest.Host = "www.lazada.com.my"
                 myHttpWebRequest.Accept = "*/*"
                 myHttpWebRequest.ContentType = "application/x-www-form-urlencoded; charset=UTF-8"
+                'myHttpWebRequest.Proxy = myProxy
 
                 'Try
                 objStream = myHttpWebRequest.GetResponse.GetResponseStream
@@ -109,6 +110,7 @@ Module Module1
         sURL = "http://www.lazada.com.my/ajax/lottery/settings/?lang=en&platform=desktop&dpr=" & Trim(strFileName)
         'sURL = "http://www.lazada.com.my/ajax/campaign/play/?lang=en&platform=desktop&dpr=" & Trim(strFileName)
         Dim res As HttpWebResponse
+        'Dim myProxy As New WebProxy("103.253.147.9:8080", True)
         Dim myHttpWebRequest As HttpWebRequest = CType(WebRequest.Create(sURL), HttpWebRequest)
         myHttpWebRequest.CookieContainer = CookieJar
         myHttpWebRequest.UserAgent = "Mozilla/5.0 (Windows NT 6.3; WOW64; rv:42.0) Gecko/20100101 Firefox/42.0"
@@ -116,6 +118,7 @@ Module Module1
         myHttpWebRequest.Host = "www.lazada.com.my"
         myHttpWebRequest.Accept = "*/*"
         myHttpWebRequest.ContentType = "application/x-www-form-urlencoded; charset=UTF-8"
+        'myHttpWebRequest.Proxy = myProxy
 
         objStream = myHttpWebRequest.GetResponse.GetResponseStream()
         res = myHttpWebRequest.GetResponse
