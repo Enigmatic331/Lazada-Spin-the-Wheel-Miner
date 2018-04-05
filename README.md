@@ -1,4 +1,4 @@
-# Lazada-Spin-the-Wheel-Miner
+# Lazada Spin the Wheel Tool
 
 Tool to automate HTTP requests to Lazada's Spin the Wheel game to obtain vouchers - Used since 2015 to 2017 which then Lazada took down the game (RIP Spin the Wheel). Vouchers collected are saved into a text file.
 
