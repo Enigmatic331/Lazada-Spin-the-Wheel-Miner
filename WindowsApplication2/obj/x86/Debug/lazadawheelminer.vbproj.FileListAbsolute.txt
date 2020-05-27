@@ -8,3 +8,14 @@ C:\WindowsApplication2\WindowsApplication2\obj\x86\Debug\lazadawheelminer.vbproj
 C:\WindowsApplication2\WindowsApplication2\obj\x86\Debug\lazadawheelminer.exe
 C:\WindowsApplication2\WindowsApplication2\obj\x86\Debug\lazadawheelminer.xml
 C:\WindowsApplication2\WindowsApplication2\obj\x86\Debug\lazadawheelminer.pdb
+C:\Lazada-Spin-the-Wheel-Miner\WindowsApplication2\bin\Debug\lazadawheelminer.exe
+C:\Lazada-Spin-the-Wheel-Miner\WindowsApplication2\bin\Debug\lazadawheelminer.pdb
+C:\Lazada-Spin-the-Wheel-Miner\WindowsApplication2\bin\Debug\lazadawheelminer.xml
+C:\Lazada-Spin-the-Wheel-Miner\WindowsApplication2\obj\x86\Debug\lazadawheelminer.vbprojResolveAssemblyReference.cache
+C:\Lazada-Spin-the-Wheel-Miner\WindowsApplication2\obj\x86\Debug\lazadawheelminer.Form1.resources
+C:\Lazada-Spin-the-Wheel-Miner\WindowsApplication2\obj\x86\Debug\lazadawheelminer.Resources.resources
+C:\Lazada-Spin-the-Wheel-Miner\WindowsApplication2\obj\x86\Debug\lazadawheelminer.vbproj.GenerateResource.Cache
+C:\Lazada-Spin-the-Wheel-Miner\WindowsApplication2\obj\x86\Debug\lazadawheelminer.exe
+C:\Lazada-Spin-the-Wheel-Miner\WindowsApplication2\obj\x86\Debug\lazadawheelminer.xml
+C:\Lazada-Spin-the-Wheel-Miner\WindowsApplication2\obj\x86\Debug\lazadawheelminer.pdb
+C:\Lazada-Spin-the-Wheel-Miner\WindowsApplication2\obj\x86\Debug\lazadawheelminer.vbproj.CoreCompileInputs.cache
